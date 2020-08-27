@@ -1,4 +1,4 @@
-Chapter Two: Dynamic Earth and Data Input
+Chapter Two: Data Input and Our Dynamic Earth
 =======================
 
 This week we will focus on building some background earth science knowledge:

@@ -1,0 +1,2259 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>4.1 Data Wrangling and Advanced Indexing &#8212; Python Intro to Geoscience</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4.2 Seafloor Spreading" href="W4_seafloor_spreading.html" />
+    <link rel="prev" title="Chapter 4: Data Wrangling, Functions, and Seafloor Spreading" href="../week_04.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Python Intro to Geoscience</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Welcome to PyEarth
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_01.html">
+   Chapter One: Introduction to Jupyter Notebooks and Map Projections
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_02.html">
+   Chapter Two: Data Input and Our Dynamic Earth
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_03.html">
+   Chapter 3: Data Visualization and Earthquakes
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="../week_04.html">
+   Chapter 4: Data Wrangling, Functions, and Seafloor Spreading
+  </a>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     4.1 Data Wrangling and Advanced Indexing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="W4_seafloor_spreading.html">
+     4.2 Seafloor Spreading
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../append_A.html">
+   Appendix A: Function Catalog
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/folder_04/W4_dataframes.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#additional-required-reading-functions">
+   Additional Required Reading: Functions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#numpy-arrays-and-dataframes">
+   Numpy Arrays and DataFrames
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#nparray">
+     nparray
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dataframes">
+     DataFrames
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#indexing-and-slicing">
+   Indexing and Slicing
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#boolean-indexing">
+   Boolean Indexing
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sorting">
+   Sorting
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-cleaning-and-inspection">
+   Data cleaning and inspection
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#finding-missing-data-nans">
+     Finding missing data (NaNs)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#further-reading-optional">
+   Further Reading (Optional)
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="data-wrangling-and-advanced-indexing">
+<h1>4.1 Data Wrangling and Advanced Indexing<a class="headerlink" href="#data-wrangling-and-advanced-indexing" title="Permalink to this headline">¶</a></h1>
+<p><strong>Goal:</strong> Build data wrangling skills to clean and navigate datasets.</p>
+<p><strong>Outline:</strong></p>
+<ul class="simple">
+<li><p>Numpy Array and DataFrame methods and functions</p></li>
+<li><p>Table indexing and slicing</p></li>
+<li><p>Boolean (logical) indexing</p></li>
+<li><p>Sorting</p></li>
+<li><p>Data cleaning and inspection</p></li>
+</ul>
+<div class="section" id="additional-required-reading-functions">
+<h2>Additional Required Reading: Functions<a class="headerlink" href="#additional-required-reading-functions" title="Permalink to this headline">¶</a></h2>
+<p>Data 8 textbook “Computational and Inferential Thinking: The Foundations of Data Science” By Ani Adhikari and John DeNero <a class="reference external" href="https://www.inferentialthinking.com/chapters/08/Functions_and_Tables.html">Chapter 8 Functions and Tables</a>. This should overlap with your assigned reading for Data 8.</p>
+</div>
+<div class="section" id="numpy-arrays-and-dataframes">
+<h2>Numpy Arrays and DataFrames<a class="headerlink" href="#numpy-arrays-and-dataframes" title="Permalink to this headline">¶</a></h2>
+<p>NumPy and Pandas offer several types of data structures, the two main structures that we use are <code class="docutils literal notranslate"><span class="pre">nparray</span></code> and <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>. A <code class="docutils literal notranslate"><span class="pre">nparray</span></code> is a fast and flexible container for large datasets that allows you to perform operations on whole blocks of data at once. <code class="docutils literal notranslate"><span class="pre">nparray</span></code>s are best suited for homogenous (just one type) numerical data. <code class="docutils literal notranslate"><span class="pre">DataFrames</span></code> are designed for tabular datasets, and can handle heterogenous data (multiple types: int, float, string, etc.).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="nparray">
+<h3>nparray<a class="headerlink" href="#nparray" title="Permalink to this headline">¶</a></h3>
+<p>Here is an example of a <code class="docutils literal notranslate"><span class="pre">nparray</span></code> with random float data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate a random nparray called arr_data</span>
+<span class="n">arr_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">arr_data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([[-1.67978035, -0.36889905,  3.29799711],
+       [ 0.505203  ,  0.65949296,  0.09282764],
+       [ 0.9368009 , -1.02464742,  0.73244908],
+       [ 0.56478264,  1.08098617, -0.88396509],
+       [-0.61173512, -0.05506402, -1.67142082]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>The function <code class="docutils literal notranslate"><span class="pre">arrayName.shape</span></code> is useful for finding the number of rows and columns in an array.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># use .shape to determine the shape of arr_data</span>
+<span class="n">arr_data</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>(5, 3)
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">arrayName.dtype</span></code> will display the data type of the data stored in the array.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># use .dtype to determine the type of arr_data</span>
+<span class="n">arr_data</span><span class="o">.</span><span class="n">dtype</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>dtype(&#39;float64&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>The functions <code class="docutils literal notranslate"><span class="pre">np.zeros</span></code> and <code class="docutils literal notranslate"><span class="pre">np.ones</span></code> are similar, they create arrays full of zeros and ones respectively. The input for these functions is the shape of the array you want. This is an effective way of setting up an array of place-holders that you can then fill in with a loop or to make an array of a single value.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate a nparray of zeros with np.zeros</span>
+<span class="n">arr0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">arr0</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([[0., 0., 0., 0.],
+       [0., 0., 0., 0.],
+       [0., 0., 0., 0.],
+       [0., 0., 0., 0.]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate a nparray of ones with np.ones</span>
+<span class="n">arr1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">arr1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([[1., 1., 1., 1.],
+       [1., 1., 1., 1.],
+       [1., 1., 1., 1.],
+       [1., 1., 1., 1.]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># np.ones is handy for making a nparray of any single value</span>
+<span class="n">arr5</span> <span class="o">=</span> <span class="n">arr1</span> <span class="o">*</span> <span class="mi">5</span>
+<span class="n">arr5</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([[5., 5., 5., 5.],
+       [5., 5., 5., 5.],
+       [5., 5., 5., 5.],
+       [5., 5., 5., 5.]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>The functions <code class="docutils literal notranslate"><span class="pre">np.arange</span></code> and <code class="docutils literal notranslate"><span class="pre">np.linspace</span></code> can be used to make monotonic number lines. They are really useful! <code class="docutils literal notranslate"><span class="pre">np.arange</span></code> makes an array of integers or floats between the starting and ending (note that the ending point is exclusive) in steps that you set as inputs. <code class="docutils literal notranslate"><span class="pre">np.linspace</span></code> will make evenly spaced float points between the starting and ending (note that the ending point is inclusive) you set.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate an array of integers between 0 and 10 in steps of 1, including 0 (start) but not 11 (end)</span>
+<span class="n">arr2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> 
+<span class="n">arr2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate an array of floats between 0 and 10 in steps of 2, including 0 (start) but not 11 (end)</span>
+<span class="n">arr2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">11.0</span><span class="p">,</span><span class="mf">2.0</span><span class="p">)</span> 
+<span class="n">arr2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([ 0.,  2.,  4.,  6.,  8., 10.])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate an array of 14 evenly spaced numbers between 0 and 10, including 0 (start) and 10 (end).</span>
+<span class="n">arr3</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">14</span><span class="p">)</span> 
+<span class="n">arr3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([ 0.        ,  0.76923077,  1.53846154,  2.30769231,  3.07692308,
+        3.84615385,  4.61538462,  5.38461538,  6.15384615,  6.92307692,
+        7.69230769,  8.46153846,  9.23076923, 10.        ])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="dataframes">
+<h3>DataFrames<a class="headerlink" href="#dataframes" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Series</span></code> and <code class="docutils literal notranslate"><span class="pre">DataFrames</span></code> are like nparrays but they have the added feature of index labels assigned to each row and column – the bold labels in the below <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>. These labels can be used to bin and select data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># generate a new DataFrame</span>
+<span class="c1"># note that index values (like the column labels) don&#39;t have to integers and don&#39;t have to be in order</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Nevada&#39;</span><span class="p">,</span><span class="s1">&#39;Montana&#39;</span><span class="p">,</span><span class="s1">&#39;Arizona&#39;</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;sedimentary&#39;</span><span class="p">,</span><span class="s1">&#39;igneous&#39;</span><span class="p">,</span><span class="s1">&#39;metamorphic&#39;</span><span class="p">])</span>
+<span class="n">frame</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sedimentary</th>
+      <th>igneous</th>
+      <th>metamorphic</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Nevada</th>
+      <td>0.960114</td>
+      <td>0.809870</td>
+      <td>0.142042</td>
+    </tr>
+    <tr>
+      <th>Montana</th>
+      <td>0.669687</td>
+      <td>0.914175</td>
+      <td>0.198718</td>
+    </tr>
+    <tr>
+      <th>Arizona</th>
+      <td>0.668879</td>
+      <td>0.103981</td>
+      <td>0.119326</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>We’ve seen <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> structures before in our tabular data files. The Earthquake catalog we were dealing with last week was a .csv (Comma Separated Variable) data file of all the earthquakes. We imported it as a DataFrame from the USGS API by setting up a query URL and using <code class="docutils literal notranslate"><span class="pre">pd.read_csv</span></code>. This time we’ll look at the earthquakes of magnitude 2.5 and greater from the past week.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">start_day</span> <span class="o">=</span> <span class="s1">&#39;2020-09-07&#39;</span>
+<span class="n">end_day</span> <span class="o">=</span> <span class="s1">&#39;2020-09-14&#39;</span>
+<span class="n">standard_url</span> <span class="o">=</span> <span class="s1">&#39;https://earthquake.usgs.gov/fdsnws/event/1/query?format=csv&amp;orderby=magnitude&#39;</span>
+
+<span class="n">query_url</span> <span class="o">=</span> <span class="n">standard_url</span> <span class="o">+</span> <span class="s1">&#39;&amp;starttime=&#39;</span> <span class="o">+</span> <span class="n">start_day</span> <span class="o">+</span> <span class="s1">&#39;&amp;endtime=&#39;</span> <span class="o">+</span> <span class="n">end_day</span> <span class="o">+</span> <span class="s1">&#39;&amp;minmagnitude=2.5&#39;</span>
+<span class="n">EQ_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">query_url</span><span class="p">)</span>
+<span class="n">EQ_data</span> <span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>time</th>
+      <th>latitude</th>
+      <th>longitude</th>
+      <th>depth</th>
+      <th>mag</th>
+      <th>magType</th>
+      <th>nst</th>
+      <th>gap</th>
+      <th>dmin</th>
+      <th>rms</th>
+      <th>...</th>
+      <th>updated</th>
+      <th>place</th>
+      <th>type</th>
+      <th>horizontalError</th>
+      <th>depthError</th>
+      <th>magError</th>
+      <th>magNst</th>
+      <th>status</th>
+      <th>locationSource</th>
+      <th>magSource</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2020-09-11T07:35:57.894Z</td>
+      <td>-21.3928</td>
+      <td>-69.8943</td>
+      <td>51.00</td>
+      <td>6.3</td>
+      <td>mww</td>
+      <td>NaN</td>
+      <td>41.0</td>
+      <td>0.072</td>
+      <td>1.39</td>
+      <td>...</td>
+      <td>2020-09-13T08:04:13.078Z</td>
+      <td>83 km NNE of Tocopilla, Chile</td>
+      <td>earthquake</td>
+      <td>3.0</td>
+      <td>1.8</td>
+      <td>0.052</td>
+      <td>35.0</td>
+      <td>reviewed</td>
+      <td>us</td>
+      <td>us</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2020-09-12T02:44:10.969Z</td>
+      <td>38.7591</td>
+      <td>142.2473</td>
+      <td>32.09</td>
+      <td>6.1</td>
+      <td>mww</td>
+      <td>NaN</td>
+      <td>47.0</td>
+      <td>2.223</td>
+      <td>0.95</td>
+      <td>...</td>
+      <td>2020-09-14T03:01:02.354Z</td>
+      <td>57 km SE of Ōfunato, Japan</td>
+      <td>earthquake</td>
+      <td>7.3</td>
+      <td>3.5</td>
+      <td>0.057</td>
+      <td>30.0</td>
+      <td>reviewed</td>
+      <td>us</td>
+      <td>us</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2020-09-07T06:12:40.093Z</td>
+      <td>-17.0893</td>
+      <td>168.4760</td>
+      <td>10.00</td>
+      <td>6.0</td>
+      <td>mww</td>
+      <td>NaN</td>
+      <td>29.0</td>
+      <td>2.039</td>
+      <td>1.35</td>
+      <td>...</td>
+      <td>2020-09-09T06:35:29.105Z</td>
+      <td>73 km NNE of Port-Vila, Vanuatu</td>
+      <td>earthquake</td>
+      <td>5.7</td>
+      <td>1.7</td>
+      <td>0.098</td>
+      <td>10.0</td>
+      <td>reviewed</td>
+      <td>us</td>
+      <td>us</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2020-09-08T00:45:20.952Z</td>
+      <td>-4.9124</td>
+      <td>129.7627</td>
+      <td>174.05</td>
+      <td>5.9</td>
+      <td>mww</td>
+      <td>NaN</td>
+      <td>12.0</td>
+      <td>3.173</td>
+      <td>0.78</td>
+      <td>...</td>
+      <td>2020-09-09T00:49:01.271Z</td>
+      <td>197 km SSE of Amahai, Indonesia</td>
+      <td>earthquake</td>
+      <td>6.4</td>
+      <td>3.6</td>
+      <td>0.086</td>
+      <td>13.0</td>
+      <td>reviewed</td>
+      <td>us</td>
+      <td>us</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2020-09-12T08:34:27.387Z</td>
+      <td>-17.2562</td>
+      <td>167.6938</td>
+      <td>10.00</td>
+      <td>5.9</td>
+      <td>mww</td>
+      <td>NaN</td>
+      <td>64.0</td>
+      <td>1.859</td>
+      <td>0.77</td>
+      <td>...</td>
+      <td>2020-09-13T08:38:38.008Z</td>
+      <td>84 km NW of Port-Vila, Vanuatu</td>
+      <td>earthquake</td>
+      <td>5.4</td>
+      <td>1.6</td>
+      <td>0.086</td>
+      <td>13.0</td>
+      <td>reviewed</td>
+      <td>us</td>
+      <td>us</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 22 columns</p>
+</div></div></div>
+</div>
+<p>We have seen referencing individual columns (which are called <code class="docutils literal notranslate"><span class="pre">Series</span></code>) with: <code class="docutils literal notranslate"><span class="pre">DataFrame['Column_Name']</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">EQ_data</span><span class="p">[</span><span class="s1">&#39;depth&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0       51.00
+1       32.09
+2       10.00
+3      174.05
+4       10.00
+        ...  
+307     10.00
+308     19.60
+309      1.87
+310      6.90
+311     85.70
+Name: depth, Length: 312, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">.values</span></code> function can be used to return the values of the <code class="docutils literal notranslate"><span class="pre">Series</span></code> as a <code class="docutils literal notranslate"><span class="pre">nparray</span></code>, so without the labled index values of the <code class="docutils literal notranslate"><span class="pre">Series</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">EQ_data</span><span class="p">[</span><span class="s1">&#39;depth&#39;</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.series.Series&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">EQ_data</span><span class="p">[</span><span class="s1">&#39;depth&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([5.1000e+01, 3.2090e+01, 1.0000e+01, 1.7405e+02, 1.0000e+01,
+       1.8000e+01, 1.0000e+01, 1.0000e+01, 5.5657e+02, 1.0000e+01,
+       3.5000e+01, 4.3280e+01, 3.1090e+02, 1.3497e+02, 1.4081e+02,
+       5.5750e+01, 1.0000e+01, 1.0000e+01, 1.0000e+01, 5.8130e+01,
+       1.0000e+01, 9.8250e+01, 1.0000e+01, 1.0000e+01, 1.3131e+02,
+       1.4900e+01, 1.0000e+01, 5.7490e+01, 4.1180e+01, 8.7260e+01,
+       3.5000e+01, 1.0000e+01, 1.0000e+01, 1.0000e+01, 1.0000e+01,
+       6.4160e+01, 1.3834e+02, 3.4320e+01, 2.3200e+01, 1.0000e+01,
+       1.0370e+02, 1.0000e+01, 4.1160e+01, 4.6839e+02, 1.0000e+01,
+       1.1292e+02, 1.3864e+02, 1.0000e+01, 1.0000e+01, 9.1600e+00,
+       1.0000e+01, 1.0000e+01, 6.7950e+01, 1.0000e+01, 1.0000e+01,
+       1.0000e+01, 1.0000e+01, 1.0000e+01, 1.0000e+01, 1.0000e+01,
+       1.0470e+01, 7.7610e+01, 4.4440e+01, 1.2395e+02, 1.0000e+01,
+       7.4540e+01, 4.3080e+01, 3.5000e+01, 1.0000e+01, 1.0000e+01,
+       1.0000e+01, 2.1316e+02, 1.0000e+01, 1.5478e+02, 1.6725e+02,
+       6.2140e+01, 3.5000e+01, 1.0000e+01, 4.3800e+01, 9.5610e+01,
+       1.0000e+01, 2.4586e+02, 4.7130e+01, 3.0870e+01, 5.3140e+01,
+       3.5000e+01, 2.4988e+02, 1.0000e+01, 1.0000e+01, 4.3980e+01,
+       2.9330e+01, 1.0000e+01, 1.0000e+01, 2.5010e+01, 2.0520e+01,
+       1.0000e+01, 1.8800e+02, 1.8589e+02, 9.7700e+01, 1.0000e+01,
+       1.0000e+01, 3.7881e+02, 4.0790e+01, 1.0000e+01, 3.5000e+01,
+       4.0000e+01, 3.5000e+01, 5.3160e+01, 9.4700e+00, 2.7230e+01,
+       1.0000e+01, 6.0520e+02, 1.5339e+02, 1.0000e+01, 1.0000e+01,
+       1.0000e+01, 2.2704e+02, 1.6563e+02, 6.4900e+01, 1.0000e+01,
+       1.2690e+02, 1.3177e+02, 1.2030e+02, 1.0000e+01, 1.3680e+01,
+       1.9000e+01, 3.9300e+00, 1.0000e+01, 4.0810e+01, 4.7660e+01,
+       1.0000e+01, 1.0000e+01, 1.0000e+01, 5.0000e+00, 1.0630e+01,
+       2.9090e+01, 1.3972e+02, 4.8856e+02, 2.5170e+01, 1.7430e+01,
+       1.0000e+01, 6.3150e+01, 1.8810e+01, 1.0000e+01, 9.1010e+01,
+       8.2980e+01, 4.8296e+02, 7.7150e+01, 8.2140e+01, 1.9863e+02,
+       3.1700e+01, 1.0000e+01, 1.8704e+02, 2.7500e+01, 1.1808e+02,
+       4.7320e+01, 1.0000e+01, 3.5000e+01, 1.0000e+01, 1.0000e+01,
+       7.8820e+01, 3.8000e+01, 3.7000e+01, 6.0000e+01, 3.3000e+01,
+       3.8000e+01, 3.7000e+01, 1.0000e+01, 1.0400e+01, 3.7000e+00,
+       3.2600e+01, 1.7520e+01, 2.0000e+01, 1.2900e+02, 4.5000e+01,
+       1.0100e+01, 3.5000e+01, 1.8000e+00, 1.7280e+01, 1.9880e+01,
+       4.0000e+00, 5.0000e+00, 6.0000e+00, 1.3000e+01, 3.4800e+01,
+       1.1000e+01, 1.1000e+01, 2.3400e+00, 2.4280e+01, 1.0000e+01,
+       1.2000e+01, 5.3000e+01, 1.3000e+01, 1.1130e+01, 1.2000e+01,
+       1.6310e+01, 1.3000e+01, 6.0000e+00, 1.1000e+01, 8.8300e+01,
+       1.4000e+01, 1.6240e+01, 5.0000e+00, 5.0000e+00, 1.0000e+01,
+       2.4840e+01, 3.2940e+01, 1.1000e+01, 6.0000e+00, 1.1000e+01,
+       1.3000e+01, 5.0000e+00, 1.0000e-01, 1.0000e+01, 1.0000e+01,
+       1.7400e+01, 9.0000e+00, 1.2000e+01, 6.8300e+00, 1.3000e+01,
+       8.0000e+00, 1.0000e+01, 1.1000e+01, 6.0000e+00, 1.2000e+01,
+       2.3490e+01, 8.0000e+00, 9.0000e+00, 1.0000e+01, 0.0000e+00,
+       1.4000e+01, 1.2750e+02, 1.4100e+01, 1.0000e+01, 4.8000e+00,
+       6.3400e+00, 1.0000e+01, 1.0000e+01, 1.1000e+01, 5.5900e+00,
+       1.1000e+01, 1.4000e+01, 1.8800e+00, 0.0000e+00, 1.0000e+01,
+       3.5900e+01, 5.4000e-01, 0.0000e+00, 7.3000e+00, 6.1000e+00,
+       1.0000e+01, 1.5000e+01, 1.8000e+01, 6.9700e+00, 6.3800e+00,
+       1.0000e+01, 9.0000e+00, 1.8000e+01, 6.7800e+00, 6.0100e+01,
+       5.0000e+00, 4.7000e+00, 2.4100e+00, 3.7000e+00, 1.9900e+01,
+       5.9000e+00, 1.8900e+00, 4.4100e+00, 6.3000e+00, 1.4000e+01,
+       9.3500e+00, 1.1000e+01, 9.0000e+00, 1.3000e+01, 1.0000e+01,
+       2.1000e+01, 1.0000e+01, 1.0000e+01, 1.1900e+00, 9.0000e+00,
+       6.6700e+00, 1.2000e+01, 1.4000e+01, 1.6000e+01, 1.2670e+01,
+       3.2200e+01, 1.0000e+01, 1.3350e+01, 1.1100e+01, 6.0000e+00,
+       0.0000e+00, 1.1000e+01, 2.2000e+01, 1.1000e+01, 6.0000e+00,
+       1.2000e+00, 1.1000e+01, 9.7300e+00, 1.3000e+01, 1.2000e+01,
+       3.2310e+01, 6.0000e+00, 1.6000e+01, 3.2800e+01, 2.9000e+00,
+       1.3000e+01, 7.5000e+01, 1.0000e+01, 1.9600e+01, 1.8700e+00,
+       6.9000e+00, 8.5700e+01])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">EQ_data</span><span class="p">[</span><span class="s1">&#39;depth&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>numpy.ndarray
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="indexing-and-slicing">
+<h2>Indexing and Slicing<a class="headerlink" href="#indexing-and-slicing" title="Permalink to this headline">¶</a></h2>
+<p>Arrays and dataframes have two axes of indices, rows and columns. Remember that python indexing starts at zero, and the end bounds are generally exclusive.</p>
+<p><img alt="indices" src="../_images/indices.png" /></p>
+<blockquote>
+<div><p>Source: Python for Data Analysis (2nd Edition) McKinney, W.</p>
+</div></blockquote>
+<br>
+<p>Using square brackes we can select subsections of tables to work with:</p>
+<p><img alt="slicing" src="../_images/array_slicing.png" /></p>
+<blockquote>
+<div><p>Source: Python for Data Analysis (2nd Edition) McKinney, W.</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># generate a random array</span>
+<span class="n">arr_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">arr_data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([[-0.32479632,  0.61110301, -1.05896726, -1.59392165,  0.35588742],
+       [ 0.31680394, -0.21682686, -0.70691282, -0.89153182,  0.6318095 ],
+       [-0.47525275,  0.31389767,  0.22626676, -0.79901382, -0.04157454],
+       [-0.76965278,  2.03625119,  0.18332951, -1.12387467, -1.28676889],
+       [ 1.53278911, -0.76000856,  0.03248423, -1.3387138 , -1.90895039],
+       [ 0.47027588,  0.6063713 ,  0.63317381, -0.67406118,  1.88942954],
+       [ 0.39273588,  0.18083005,  1.94782832,  0.38753368,  1.07600139],
+       [-0.67596921,  0.30678347,  0.35160143,  0.9116798 ,  0.09575218],
+       [ 1.24408493,  0.26663019,  0.09096071,  0.86154336, -0.53184927],
+       [ 0.41334236, -0.30605004, -0.72529548,  0.4252994 , -0.04656405]])
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>slice out the first 3 rows of arr_data</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">arr_data</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">a</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([[-0.32479632,  0.61110301, -1.05896726, -1.59392165,  0.35588742],
+       [ 0.31680394, -0.21682686, -0.70691282, -0.89153182,  0.6318095 ],
+       [-0.47525275,  0.31389767,  0.22626676, -0.79901382, -0.04157454]])
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>slice out the last 2 columns of arr_data</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="n">arr_data</span><span class="p">[:,</span><span class="o">-</span><span class="mi">2</span><span class="p">:]</span>  
+<span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([[-1.59392165,  0.35588742],
+       [-0.89153182,  0.6318095 ],
+       [-0.79901382, -0.04157454],
+       [-1.12387467, -1.28676889],
+       [-1.3387138 , -1.90895039],
+       [-0.67406118,  1.88942954],
+       [ 0.38753368,  1.07600139],
+       [ 0.9116798 ,  0.09575218],
+       [ 0.86154336, -0.53184927],
+       [ 0.4252994 , -0.04656405]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Or this works too</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">arr_data</span><span class="p">[:,</span><span class="mi">3</span><span class="p">:]</span> 
+<span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([[-1.59392165,  0.35588742],
+       [-0.89153182,  0.6318095 ],
+       [-0.79901382, -0.04157454],
+       [-1.12387467, -1.28676889],
+       [-1.3387138 , -1.90895039],
+       [-0.67406118,  1.88942954],
+       [ 0.38753368,  1.07600139],
+       [ 0.9116798 ,  0.09575218],
+       [ 0.86154336, -0.53184927],
+       [ 0.4252994 , -0.04656405]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Slicing a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> is a bit different because you can reference the index labels and use <code class="docutils literal notranslate"><span class="pre">.iloc</span></code>.</p>
+<p><strong>slice out the first 10 rows of EQ_data</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">EQ_data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>time</th>
+      <th>latitude</th>
+      <th>longitude</th>
+      <th>depth</th>
+      <th>mag</th>
+      <th>magType</th>
+      <th>nst</th>
+      <th>gap</th>
+      <th>dmin</th>
+      <th>rms</th>
+      <th>...</th>
+      <th>updated</th>
+      <th>place</th>
+      <th>type</th>
+      <th>horizontalError</th>
+      <th>depthError</th>
+      <th>magError</th>
+      <th>magNst</th>
+      <th>status</th>
+      <th>locationSource</th>
+      <th>magSource</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2020-09-11T07:35:57.894Z</td>
+      <td>-21.3928</td>
+      <td>-69.8943</td>
+      <td>51.00</td>
+      <td>6.3</td>
+      <td>mww</td>
+      <td>NaN</td>
+      <td>41.0</td>
+      <td>0.072</td>
+      <td>1.39</td>
+      <td>...</td>
+      <td>2020-09-13T08:04:13.078Z</td>
+      <td>83 km NNE of Tocopilla, Chile</td>
+      <td>earthquake</td>
+      <td>3.0</td>
+      <td>1.8</td>
+      <td>0.052</td>
+      <td>35.0</td>
+      <td>reviewed</td>
+      <td>us</td>
+      <td>us</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2020-09-12T02:44:10.969Z</td>
+      <td>38.7591</td>
+      <td>142.2473</td>
+      <td>32.09</td>
+      <td>6.1</td>
+      <td>mww</td>
+      <td>NaN</td>
+      <td>47.0</td>
+      <td>2.223</td>
+      <td>0.95</td>
+      <td>...</td>
+      <td>2020-09-14T03:01:02.354Z</td>
+      <td>57 km SE of Ōfunato, Japan</td>
+      <td>earthquake</td>
+      <td>7.3</td>
+      <td>3.5</td>
+      <td>0.057</td>
+      <td>30.0</td>
+      <td>reviewed</td>
+      <td>us</td>
+      <td>us</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2020-09-07T06:12:40.093Z</td>
+      <td>-17.0893</td>
+      <td>168.4760</td>
+      <td>10.00</td>
+      <td>6.0</td>
+      <td>mww</td>
+      <td>NaN</td>
+      <td>29.0</td>
+      <td>2.039</td>
+      <td>1.35</td>
+      <td>...</td>
+      <td>2020-09-09T06:35:29.105Z</td>
+      <td>73 km NNE of Port-Vila, Vanuatu</td>
+      <td>earthquake</td>
+      <td>5.7</td>
+      <td>1.7</td>
+      <td>0.098</td>
+      <td>10.0</td>
+      <td>reviewed</td>
+      <td>us</td>
+      <td>us</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2020-09-08T00:45:20.952Z</td>
+      <td>-4.9124</td>
+      <td>129.7627</td>
+      <td>174.05</td>
+      <td>5.9</td>
+      <td>mww</td>
+      <td>NaN</td>
+      <td>12.0</td>
+      <td>3.173</td>
+      <td>0.78</td>
+      <td>...</td>
+      <td>2020-09-09T00:49:01.271Z</td>
+      <td>197 km SSE of Amahai, Indonesia</td>
+      <td>earthquake</td>
+      <td>6.4</td>
+      <td>3.6</td>
+      <td>0.086</td>
+      <td>13.0</td>
+      <td>reviewed</td>
+      <td>us</td>
+      <td>us</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2020-09-12T08:34:27.387Z</td>
+      <td>-17.2562</td>
+      <td>167.6938</td>
+      <td>10.00</td>
+      <td>5.9</td>
+      <td>mww</td>
+      <td>NaN</td>
+      <td>64.0</td>
+      <td>1.859</td>
+      <td>0.77</td>
+      <td>...</td>
+      <td>2020-09-13T08:38:38.008Z</td>
+      <td>84 km NW of Port-Vila, Vanuatu</td>
+      <td>earthquake</td>
+      <td>5.4</td>
+      <td>1.6</td>
+      <td>0.086</td>
+      <td>13.0</td>
+      <td>reviewed</td>
+      <td>us</td>
+      <td>us</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>2020-09-09T07:18:40.873Z</td>
+      <td>4.2064</td>
+      <td>126.6394</td>
+      <td>18.00</td>
+      <td>5.8</td>
+      <td>mww</td>
+      <td>NaN</td>
+      <td>32.0</td>
+      <td>3.033</td>
+      <td>1.61</td>
+      <td>...</td>
+      <td>2020-09-11T18:42:17.040Z</td>
+      <td>185 km SE of Sarangani, Philippines</td>
+      <td>earthquake</td>
+      <td>4.1</td>
+      <td>3.1</td>
+      <td>0.053</td>
+      <td>34.0</td>
+      <td>reviewed</td>
+      <td>us</td>
+      <td>us</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>2020-09-07T06:29:15.325Z</td>
+      <td>-17.1714</td>
+      <td>168.4770</td>
+      <td>10.00</td>
+      <td>5.7</td>
+      <td>mww</td>
+      <td>NaN</td>
+      <td>38.0</td>
+      <td>2.106</td>
+      <td>1.10</td>
+      <td>...</td>
+      <td>2020-09-08T06:32:55.273Z</td>
+      <td>64 km NNE of Port-Vila, Vanuatu</td>
+      <td>earthquake</td>
+      <td>7.2</td>
+      <td>1.7</td>
+      <td>0.050</td>
+      <td>38.0</td>
+      <td>reviewed</td>
+      <td>us</td>
+      <td>us</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>2020-09-07T17:40:44.171Z</td>
+      <td>-24.5120</td>
+      <td>-111.9898</td>
+      <td>10.00</td>
+      <td>5.6</td>
+      <td>mww</td>
+      <td>NaN</td>
+      <td>34.0</td>
+      <td>3.500</td>
+      <td>1.10</td>
+      <td>...</td>
+      <td>2020-09-11T16:20:37.144Z</td>
+      <td>Easter Island region</td>
+      <td>earthquake</td>
+      <td>10.2</td>
+      <td>1.8</td>
+      <td>0.066</td>
+      <td>22.0</td>
+      <td>reviewed</td>
+      <td>us</td>
+      <td>us</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>2020-09-12T02:37:29.712Z</td>
+      <td>-17.8809</td>
+      <td>-178.0547</td>
+      <td>556.57</td>
+      <td>5.6</td>
+      <td>mww</td>
+      <td>NaN</td>
+      <td>36.0</td>
+      <td>3.553</td>
+      <td>1.10</td>
+      <td>...</td>
+      <td>2020-09-13T02:41:07.273Z</td>
+      <td>279 km E of Levuka, Fiji</td>
+      <td>earthquake</td>
+      <td>8.9</td>
+      <td>6.4</td>
+      <td>0.089</td>
+      <td>12.0</td>
+      <td>reviewed</td>
+      <td>us</td>
+      <td>us</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>2020-09-08T08:28:51.109Z</td>
+      <td>-15.1768</td>
+      <td>-172.9244</td>
+      <td>10.00</td>
+      <td>5.4</td>
+      <td>mww</td>
+      <td>NaN</td>
+      <td>122.0</td>
+      <td>1.676</td>
+      <td>1.67</td>
+      <td>...</td>
+      <td>2020-09-09T08:32:27.606Z</td>
+      <td>127 km NE of Hihifo, Tonga</td>
+      <td>earthquake</td>
+      <td>9.9</td>
+      <td>2.0</td>
+      <td>0.098</td>
+      <td>10.0</td>
+      <td>reviewed</td>
+      <td>us</td>
+      <td>us</td>
+    </tr>
+  </tbody>
+</table>
+<p>10 rows × 22 columns</p>
+</div></div></div>
+</div>
+<p><strong>slice out the a chunk of depths starting at index 5 and up to (but excluding) index 10</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">EQ_data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">5</span><span class="p">:</span><span class="mi">10</span><span class="p">][</span><span class="s1">&#39;depth&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>5     18.00
+6     10.00
+7     10.00
+8    556.57
+9     10.00
+Name: depth, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice that this is still a <code class="docutils literal notranslate"><span class="pre">Series</span></code> with corresponding index values. If you just want the values from that chunk and not the index labels use <code class="docutils literal notranslate"><span class="pre">.values</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">EQ_data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">5</span><span class="p">:</span><span class="mi">10</span><span class="p">][</span><span class="s1">&#39;depth&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([ 18.  ,  10.  ,  10.  , 556.57,  10.  ])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="boolean-indexing">
+<h2>Boolean Indexing<a class="headerlink" href="#boolean-indexing" title="Permalink to this headline">¶</a></h2>
+<p>We can use Boolean (i.e. logical) indexing to select values from our DataFrame where the argument we want is <code class="docutils literal notranslate"><span class="pre">True</span></code>. You’ll use the logical symbols (<code class="docutils literal notranslate"><span class="pre">&lt;</span></code>,<code class="docutils literal notranslate"><span class="pre">&gt;</span></code>,<code class="docutils literal notranslate"><span class="pre">==</span></code>,<code class="docutils literal notranslate"><span class="pre">&amp;</span></code>,<code class="docutils literal notranslate"><span class="pre">|</span></code>,<code class="docutils literal notranslate"><span class="pre">~</span></code>).</p>
+<p><strong>Use Boolean Indexing to filter out data so that we are only looking at rows with magnitudes larger than or equal to 6.0</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">EQ_data</span><span class="p">[</span><span class="n">EQ_data</span><span class="p">[</span><span class="s1">&#39;mag&#39;</span><span class="p">]</span><span class="o">&gt;=</span><span class="mf">6.0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>time</th>
+      <th>latitude</th>
+      <th>longitude</th>
+      <th>depth</th>
+      <th>mag</th>
+      <th>magType</th>
+      <th>nst</th>
+      <th>gap</th>
+      <th>dmin</th>
+      <th>rms</th>
+      <th>...</th>
+      <th>updated</th>
+      <th>place</th>
+      <th>type</th>
+      <th>horizontalError</th>
+      <th>depthError</th>
+      <th>magError</th>
+      <th>magNst</th>
+      <th>status</th>
+      <th>locationSource</th>
+      <th>magSource</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2020-09-11T07:35:57.894Z</td>
+      <td>-21.3928</td>
+      <td>-69.8943</td>
+      <td>51.00</td>
+      <td>6.3</td>
+      <td>mww</td>
+      <td>NaN</td>
+      <td>41.0</td>
+      <td>0.072</td>
+      <td>1.39</td>
+      <td>...</td>
+      <td>2020-09-13T08:04:13.078Z</td>
+      <td>83 km NNE of Tocopilla, Chile</td>
+      <td>earthquake</td>
+      <td>3.0</td>
+      <td>1.8</td>
+      <td>0.052</td>
+      <td>35.0</td>
+      <td>reviewed</td>
+      <td>us</td>
+      <td>us</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2020-09-12T02:44:10.969Z</td>
+      <td>38.7591</td>
+      <td>142.2473</td>
+      <td>32.09</td>
+      <td>6.1</td>
+      <td>mww</td>
+      <td>NaN</td>
+      <td>47.0</td>
+      <td>2.223</td>
+      <td>0.95</td>
+      <td>...</td>
+      <td>2020-09-14T03:01:02.354Z</td>
+      <td>57 km SE of Ōfunato, Japan</td>
+      <td>earthquake</td>
+      <td>7.3</td>
+      <td>3.5</td>
+      <td>0.057</td>
+      <td>30.0</td>
+      <td>reviewed</td>
+      <td>us</td>
+      <td>us</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2020-09-07T06:12:40.093Z</td>
+      <td>-17.0893</td>
+      <td>168.4760</td>
+      <td>10.00</td>
+      <td>6.0</td>
+      <td>mww</td>
+      <td>NaN</td>
+      <td>29.0</td>
+      <td>2.039</td>
+      <td>1.35</td>
+      <td>...</td>
+      <td>2020-09-09T06:35:29.105Z</td>
+      <td>73 km NNE of Port-Vila, Vanuatu</td>
+      <td>earthquake</td>
+      <td>5.7</td>
+      <td>1.7</td>
+      <td>0.098</td>
+      <td>10.0</td>
+      <td>reviewed</td>
+      <td>us</td>
+      <td>us</td>
+    </tr>
+  </tbody>
+</table>
+<p>3 rows × 22 columns</p>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="sorting">
+<h2>Sorting<a class="headerlink" href="#sorting" title="Permalink to this headline">¶</a></h2>
+<p>DataFrames can be sorted by the values in a given column (<code class="docutils literal notranslate"><span class="pre">.sort_values</span></code>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">EQ_data</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;depth&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>time</th>
+      <th>latitude</th>
+      <th>longitude</th>
+      <th>depth</th>
+      <th>mag</th>
+      <th>magType</th>
+      <th>nst</th>
+      <th>gap</th>
+      <th>dmin</th>
+      <th>rms</th>
+      <th>...</th>
+      <th>updated</th>
+      <th>place</th>
+      <th>type</th>
+      <th>horizontalError</th>
+      <th>depthError</th>
+      <th>magError</th>
+      <th>magNst</th>
+      <th>status</th>
+      <th>locationSource</th>
+      <th>magSource</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>290</th>
+      <td>2020-09-13T19:36:18.333Z</td>
+      <td>58.3861</td>
+      <td>-137.1493</td>
+      <td>0.0</td>
+      <td>2.6</td>
+      <td>ml</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.84</td>
+      <td>...</td>
+      <td>2020-09-13T20:41:25.115Z</td>
+      <td>51 km WNW of Elfin Cove, Alaska</td>
+      <td>earthquake</td>
+      <td>NaN</td>
+      <td>0.4</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>automatic</td>
+      <td>ak</td>
+      <td>ak</td>
+    </tr>
+    <tr>
+      <th>247</th>
+      <td>2020-09-10T18:51:28.617Z</td>
+      <td>66.3482</td>
+      <td>-157.5925</td>
+      <td>0.0</td>
+      <td>2.8</td>
+      <td>ml</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.96</td>
+      <td>...</td>
+      <td>2020-09-11T13:30:10.040Z</td>
+      <td>63 km SSW of Shungnak, Alaska</td>
+      <td>earthquake</td>
+      <td>NaN</td>
+      <td>0.5</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>automatic</td>
+      <td>ak</td>
+      <td>ak</td>
+    </tr>
+    <tr>
+      <th>229</th>
+      <td>2020-09-08T23:12:33.877Z</td>
+      <td>59.8997</td>
+      <td>-140.9836</td>
+      <td>0.0</td>
+      <td>2.9</td>
+      <td>ml</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.89</td>
+      <td>...</td>
+      <td>2020-09-08T23:30:41.040Z</td>
+      <td>80 km WNW of Yakutat, Alaska</td>
+      <td>earthquake</td>
+      <td>NaN</td>
+      <td>0.3</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>automatic</td>
+      <td>ak</td>
+      <td>ak</td>
+    </tr>
+    <tr>
+      <th>243</th>
+      <td>2020-09-08T00:18:38.934Z</td>
+      <td>67.8553</td>
+      <td>-164.2600</td>
+      <td>0.0</td>
+      <td>2.8</td>
+      <td>ml</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.79</td>
+      <td>...</td>
+      <td>2020-09-08T01:00:12.358Z</td>
+      <td>18 km NE of Kivalina, Alaska</td>
+      <td>earthquake</td>
+      <td>NaN</td>
+      <td>0.2</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>automatic</td>
+      <td>ak</td>
+      <td>ak</td>
+    </tr>
+    <tr>
+      <th>212</th>
+      <td>2020-09-07T08:36:25.622Z</td>
+      <td>67.3271</td>
+      <td>-156.3144</td>
+      <td>0.1</td>
+      <td>3.0</td>
+      <td>ml</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.75</td>
+      <td>...</td>
+      <td>2020-09-07T09:11:34.040Z</td>
+      <td>52 km NNE of Kobuk, Alaska</td>
+      <td>earthquake</td>
+      <td>NaN</td>
+      <td>0.7</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>automatic</td>
+      <td>ak</td>
+      <td>ak</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 22 columns</p>
+</div></div></div>
+</div>
+<p>You can reverse the order of sorting with <code class="docutils literal notranslate"><span class="pre">ascending=False</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">EQ_data</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;depth&#39;</span><span class="p">],</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>time</th>
+      <th>latitude</th>
+      <th>longitude</th>
+      <th>depth</th>
+      <th>mag</th>
+      <th>magType</th>
+      <th>nst</th>
+      <th>gap</th>
+      <th>dmin</th>
+      <th>rms</th>
+      <th>...</th>
+      <th>updated</th>
+      <th>place</th>
+      <th>type</th>
+      <th>horizontalError</th>
+      <th>depthError</th>
+      <th>magError</th>
+      <th>magNst</th>
+      <th>status</th>
+      <th>locationSource</th>
+      <th>magSource</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>111</th>
+      <td>2020-09-07T22:22:20.306Z</td>
+      <td>-20.8541</td>
+      <td>-178.6937</td>
+      <td>605.20</td>
+      <td>4.3</td>
+      <td>mb</td>
+      <td>NaN</td>
+      <td>115.0</td>
+      <td>4.359</td>
+      <td>0.82</td>
+      <td>...</td>
+      <td>2020-09-14T04:12:05.040Z</td>
+      <td>Fiji region</td>
+      <td>earthquake</td>
+      <td>14.9</td>
+      <td>8.6</td>
+      <td>0.116</td>
+      <td>21.0</td>
+      <td>reviewed</td>
+      <td>us</td>
+      <td>us</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>2020-09-12T02:37:29.712Z</td>
+      <td>-17.8809</td>
+      <td>-178.0547</td>
+      <td>556.57</td>
+      <td>5.6</td>
+      <td>mww</td>
+      <td>NaN</td>
+      <td>36.0</td>
+      <td>3.553</td>
+      <td>1.10</td>
+      <td>...</td>
+      <td>2020-09-13T02:41:07.273Z</td>
+      <td>279 km E of Levuka, Fiji</td>
+      <td>earthquake</td>
+      <td>8.9</td>
+      <td>6.4</td>
+      <td>0.089</td>
+      <td>12.0</td>
+      <td>reviewed</td>
+      <td>us</td>
+      <td>us</td>
+    </tr>
+    <tr>
+      <th>137</th>
+      <td>2020-09-11T21:57:24.258Z</td>
+      <td>28.8670</td>
+      <td>139.0123</td>
+      <td>488.56</td>
+      <td>4.2</td>
+      <td>mb</td>
+      <td>NaN</td>
+      <td>67.0</td>
+      <td>4.290</td>
+      <td>0.73</td>
+      <td>...</td>
+      <td>2020-09-13T00:48:54.040Z</td>
+      <td>Bonin Islands, Japan region</td>
+      <td>earthquake</td>
+      <td>9.7</td>
+      <td>6.2</td>
+      <td>0.033</td>
+      <td>257.0</td>
+      <td>reviewed</td>
+      <td>us</td>
+      <td>us</td>
+    </tr>
+    <tr>
+      <th>146</th>
+      <td>2020-09-09T18:15:24.772Z</td>
+      <td>-24.4581</td>
+      <td>179.9656</td>
+      <td>482.96</td>
+      <td>4.1</td>
+      <td>mb</td>
+      <td>NaN</td>
+      <td>131.0</td>
+      <td>26.193</td>
+      <td>0.46</td>
+      <td>...</td>
+      <td>2020-09-14T18:46:41.040Z</td>
+      <td>south of the Fiji Islands</td>
+      <td>earthquake</td>
+      <td>15.6</td>
+      <td>11.8</td>
+      <td>0.120</td>
+      <td>19.0</td>
+      <td>reviewed</td>
+      <td>us</td>
+      <td>us</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>2020-09-08T00:55:46.719Z</td>
+      <td>28.1788</td>
+      <td>139.8487</td>
+      <td>468.39</td>
+      <td>4.7</td>
+      <td>mb</td>
+      <td>NaN</td>
+      <td>128.0</td>
+      <td>4.920</td>
+      <td>1.04</td>
+      <td>...</td>
+      <td>2020-09-12T04:49:26.040Z</td>
+      <td>Bonin Islands, Japan region</td>
+      <td>earthquake</td>
+      <td>6.1</td>
+      <td>9.6</td>
+      <td>0.130</td>
+      <td>18.0</td>
+      <td>reviewed</td>
+      <td>us</td>
+      <td>us</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 22 columns</p>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="data-cleaning-and-inspection">
+<h2>Data cleaning and inspection<a class="headerlink" href="#data-cleaning-and-inspection" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">.drop()</span></code> can be used to drop whole columns from a DataFrame.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">EQ_data_concise</span> <span class="o">=</span> <span class="n">EQ_data</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;magType&#39;</span><span class="p">,</span><span class="s1">&#39;nst&#39;</span><span class="p">,</span><span class="s1">&#39;gap&#39;</span><span class="p">,</span><span class="s1">&#39;dmin&#39;</span><span class="p">,</span><span class="s1">&#39;rms&#39;</span><span class="p">,</span><span class="s1">&#39;net&#39;</span><span class="p">,</span><span class="s1">&#39;id&#39;</span><span class="p">,</span><span class="s1">&#39;updated&#39;</span><span class="p">,</span><span class="s1">&#39;place&#39;</span><span class="p">,</span><span class="s1">&#39;type&#39;</span><span class="p">,</span><span class="s1">&#39;horizontalError&#39;</span><span class="p">,</span><span class="s1">&#39;depthError&#39;</span><span class="p">,</span><span class="s1">&#39;magError&#39;</span><span class="p">,</span><span class="s1">&#39;magNst&#39;</span><span class="p">,</span><span class="s1">&#39;status&#39;</span><span class="p">,</span><span class="s1">&#39;locationSource&#39;</span><span class="p">,</span><span class="s1">&#39;magSource&#39;</span><span class="p">,],</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span>
+<span class="n">EQ_data_concise</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>time</th>
+      <th>latitude</th>
+      <th>longitude</th>
+      <th>depth</th>
+      <th>mag</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2020-09-11T07:35:57.894Z</td>
+      <td>-21.3928</td>
+      <td>-69.8943</td>
+      <td>51.00</td>
+      <td>6.3</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2020-09-12T02:44:10.969Z</td>
+      <td>38.7591</td>
+      <td>142.2473</td>
+      <td>32.09</td>
+      <td>6.1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2020-09-07T06:12:40.093Z</td>
+      <td>-17.0893</td>
+      <td>168.4760</td>
+      <td>10.00</td>
+      <td>6.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2020-09-08T00:45:20.952Z</td>
+      <td>-4.9124</td>
+      <td>129.7627</td>
+      <td>174.05</td>
+      <td>5.9</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2020-09-12T08:34:27.387Z</td>
+      <td>-17.2562</td>
+      <td>167.6938</td>
+      <td>10.00</td>
+      <td>5.9</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">.unique()</span></code> returns the unique values from the specified object.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">unique_mags</span> <span class="o">=</span> <span class="n">EQ_data_concise</span><span class="p">[</span><span class="s1">&#39;mag&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<span class="n">unique_mags</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="n">unique_mags</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([2.5 , 2.51, 2.53, 2.54, 2.55, 2.56, 2.57, 2.58, 2.6 , 2.61, 2.62,
+       2.64, 2.65, 2.66, 2.68, 2.7 , 2.74, 2.75, 2.76, 2.77, 2.79, 2.8 ,
+       2.81, 2.82, 2.84, 2.86, 2.87, 2.9 , 2.91, 2.92, 2.93, 2.95, 2.97,
+       2.98, 2.99, 3.  , 3.01, 3.02, 3.03, 3.06, 3.1 , 3.17, 3.18, 3.2 ,
+       3.21, 3.23, 3.26, 3.3 , 3.32, 3.34, 3.4 , 3.42, 3.43, 3.44, 3.46,
+       3.5 , 3.53, 3.59, 3.6 , 3.7 , 3.71, 3.72, 3.74, 3.75, 3.83, 3.9 ,
+       4.  , 4.1 , 4.2 , 4.22, 4.3 , 4.33, 4.36, 4.4 , 4.5 , 4.6 , 4.7 ,
+       4.8 , 4.9 , 5.  , 5.1 , 5.2 , 5.4 , 5.6 , 5.7 , 5.8 , 5.9 , 6.  ,
+       6.1 , 6.3 ])
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">.value_counts()</span></code> returns the count of each unique value from the specified object. This functionality can be used to find duplicate values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">EQ_data_concise</span><span class="p">[</span><span class="s1">&#39;mag&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>4.30    19
+4.50    19
+4.60    16
+4.70    15
+4.40    15
+        ..
+5.70     1
+6.30     1
+4.33     1
+3.71     1
+6.00     1
+Name: mag, Length: 90, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="finding-missing-data-nans">
+<h3>Finding missing data (NaNs)<a class="headerlink" href="#finding-missing-data-nans" title="Permalink to this headline">¶</a></h3>
+<p>NaN stands for not a number and is used as a placeholder in data tables where no value exists. <code class="docutils literal notranslate"><span class="pre">np.isnan</span></code> returns a boolean object with True where NaNs appear in the DataFrame.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">EQ_data</span><span class="p">[</span><span class="s1">&#39;nst&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0       True
+1       True
+2       True
+3       True
+4       True
+       ...  
+307     True
+308     True
+309    False
+310    False
+311     True
+Name: nst, Length: 312, dtype: bool
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">EQ_data</span><span class="p">[</span><span class="s1">&#39;nst&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0      False
+1      False
+2      False
+3      False
+4      False
+       ...  
+307    False
+308    False
+309     True
+310     True
+311    False
+Name: nst, Length: 312, dtype: bool
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can use this boolean object to filter-out rows that contain NaNs.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">EQ_data</span><span class="p">[</span><span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">EQ_data</span><span class="p">[</span><span class="s1">&#39;nst&#39;</span><span class="p">])]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>time</th>
+      <th>latitude</th>
+      <th>longitude</th>
+      <th>depth</th>
+      <th>mag</th>
+      <th>magType</th>
+      <th>nst</th>
+      <th>gap</th>
+      <th>dmin</th>
+      <th>rms</th>
+      <th>...</th>
+      <th>updated</th>
+      <th>place</th>
+      <th>type</th>
+      <th>horizontalError</th>
+      <th>depthError</th>
+      <th>magError</th>
+      <th>magNst</th>
+      <th>status</th>
+      <th>locationSource</th>
+      <th>magSource</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>105</th>
+      <td>2020-09-12T23:22:04.540Z</td>
+      <td>19.304600</td>
+      <td>-64.389600</td>
+      <td>40.00</td>
+      <td>4.36</td>
+      <td>md</td>
+      <td>19.0</td>
+      <td>233.0</td>
+      <td>1.86560</td>
+      <td>0.4800</td>
+      <td>...</td>
+      <td>2020-09-13T07:24:32.234Z</td>
+      <td>115 km NNE of Cruz Bay, U.S. Virgin Islands</td>
+      <td>earthquake</td>
+      <td>3.57</td>
+      <td>29.63</td>
+      <td>0.060000</td>
+      <td>8.0</td>
+      <td>reviewed</td>
+      <td>pr</td>
+      <td>pr</td>
+    </tr>
+    <tr>
+      <th>106</th>
+      <td>2020-09-13T07:12:58.980Z</td>
+      <td>19.396000</td>
+      <td>-64.284100</td>
+      <td>35.00</td>
+      <td>4.33</td>
+      <td>md</td>
+      <td>26.0</td>
+      <td>234.0</td>
+      <td>2.00520</td>
+      <td>0.2900</td>
+      <td>...</td>
+      <td>2020-09-13T15:15:36.449Z</td>
+      <td>129 km NNE of Cruz Bay, U.S. Virgin Islands</td>
+      <td>earthquake</td>
+      <td>1.81</td>
+      <td>21.72</td>
+      <td>0.130000</td>
+      <td>16.0</td>
+      <td>reviewed</td>
+      <td>pr</td>
+      <td>pr</td>
+    </tr>
+    <tr>
+      <th>126</th>
+      <td>2020-09-11T07:55:45.450Z</td>
+      <td>36.440667</td>
+      <td>-117.994500</td>
+      <td>3.93</td>
+      <td>4.22</td>
+      <td>ml</td>
+      <td>45.0</td>
+      <td>66.0</td>
+      <td>0.06908</td>
+      <td>0.1800</td>
+      <td>...</td>
+      <td>2020-09-15T02:18:08.002Z</td>
+      <td>18km SSE of Lone Pine, CA</td>
+      <td>earthquake</td>
+      <td>0.18</td>
+      <td>0.57</td>
+      <td>0.140000</td>
+      <td>320.0</td>
+      <td>reviewed</td>
+      <td>ci</td>
+      <td>ci</td>
+    </tr>
+    <tr>
+      <th>161</th>
+      <td>2020-09-08T01:19:54.510Z</td>
+      <td>19.121300</td>
+      <td>-64.398500</td>
+      <td>38.00</td>
+      <td>3.83</td>
+      <td>md</td>
+      <td>17.0</td>
+      <td>338.0</td>
+      <td>1.74990</td>
+      <td>0.4000</td>
+      <td>...</td>
+      <td>2020-09-09T00:54:19.040Z</td>
+      <td>96 km NNE of Cruz Bay, U.S. Virgin Islands</td>
+      <td>earthquake</td>
+      <td>3.23</td>
+      <td>24.52</td>
+      <td>0.110000</td>
+      <td>14.0</td>
+      <td>reviewed</td>
+      <td>pr</td>
+      <td>pr</td>
+    </tr>
+    <tr>
+      <th>162</th>
+      <td>2020-09-08T06:35:40.270Z</td>
+      <td>19.316600</td>
+      <td>-64.570800</td>
+      <td>37.00</td>
+      <td>3.83</td>
+      <td>md</td>
+      <td>20.0</td>
+      <td>335.0</td>
+      <td>1.73570</td>
+      <td>0.4100</td>
+      <td>...</td>
+      <td>2020-09-08T08:09:44.040Z</td>
+      <td>111 km NNE of Cruz Bay, U.S. Virgin Islands</td>
+      <td>earthquake</td>
+      <td>3.32</td>
+      <td>26.87</td>
+      <td>0.120000</td>
+      <td>10.0</td>
+      <td>reviewed</td>
+      <td>pr</td>
+      <td>pr</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>302</th>
+      <td>2020-09-08T11:03:53.600Z</td>
+      <td>18.027300</td>
+      <td>-66.828000</td>
+      <td>16.00</td>
+      <td>2.51</td>
+      <td>md</td>
+      <td>12.0</td>
+      <td>117.0</td>
+      <td>0.07310</td>
+      <td>0.1500</td>
+      <td>...</td>
+      <td>2020-09-08T11:14:28.314Z</td>
+      <td>2 km ESE of Yauco, Puerto Rico</td>
+      <td>earthquake</td>
+      <td>0.58</td>
+      <td>0.73</td>
+      <td>0.150000</td>
+      <td>5.0</td>
+      <td>reviewed</td>
+      <td>pr</td>
+      <td>pr</td>
+    </tr>
+    <tr>
+      <th>303</th>
+      <td>2020-09-13T17:55:42.130Z</td>
+      <td>19.182333</td>
+      <td>-155.475833</td>
+      <td>32.80</td>
+      <td>2.51</td>
+      <td>md</td>
+      <td>59.0</td>
+      <td>82.0</td>
+      <td>NaN</td>
+      <td>0.1200</td>
+      <td>...</td>
+      <td>2020-09-14T23:42:34.030Z</td>
+      <td>2 km S of Pāhala, Hawaii</td>
+      <td>earthquake</td>
+      <td>0.44</td>
+      <td>0.60</td>
+      <td>0.152709</td>
+      <td>27.0</td>
+      <td>reviewed</td>
+      <td>hv</td>
+      <td>hv</td>
+    </tr>
+    <tr>
+      <th>305</th>
+      <td>2020-09-07T08:24:04.300Z</td>
+      <td>17.932000</td>
+      <td>-66.947100</td>
+      <td>13.00</td>
+      <td>2.50</td>
+      <td>md</td>
+      <td>16.0</td>
+      <td>221.0</td>
+      <td>0.08040</td>
+      <td>0.1300</td>
+      <td>...</td>
+      <td>2020-09-07T09:46:21.114Z</td>
+      <td>6 km SW of Guánica, Puerto Rico</td>
+      <td>earthquake</td>
+      <td>0.79</td>
+      <td>0.30</td>
+      <td>0.120000</td>
+      <td>11.0</td>
+      <td>reviewed</td>
+      <td>pr</td>
+      <td>pr</td>
+    </tr>
+    <tr>
+      <th>309</th>
+      <td>2020-09-11T12:23:38.700Z</td>
+      <td>44.315167</td>
+      <td>-110.494500</td>
+      <td>1.87</td>
+      <td>2.50</td>
+      <td>ml</td>
+      <td>15.0</td>
+      <td>144.0</td>
+      <td>0.05648</td>
+      <td>0.1800</td>
+      <td>...</td>
+      <td>2020-09-11T14:39:34.760Z</td>
+      <td>61 km SE of West Yellowstone, Montana</td>
+      <td>earthquake</td>
+      <td>0.50</td>
+      <td>2.06</td>
+      <td>0.377000</td>
+      <td>8.0</td>
+      <td>reviewed</td>
+      <td>uu</td>
+      <td>uu</td>
+    </tr>
+    <tr>
+      <th>310</th>
+      <td>2020-09-12T05:56:08.720Z</td>
+      <td>38.169800</td>
+      <td>-117.964800</td>
+      <td>6.90</td>
+      <td>2.50</td>
+      <td>ml</td>
+      <td>28.0</td>
+      <td>47.8</td>
+      <td>0.03100</td>
+      <td>0.1599</td>
+      <td>...</td>
+      <td>2020-09-13T02:24:43.646Z</td>
+      <td>27 km SSE of Mina, Nevada</td>
+      <td>earthquake</td>
+      <td>NaN</td>
+      <td>0.60</td>
+      <td>0.290000</td>
+      <td>15.0</td>
+      <td>reviewed</td>
+      <td>nn</td>
+      <td>nn</td>
+    </tr>
+  </tbody>
+</table>
+<p>106 rows × 22 columns</p>
+</div></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="further-reading-optional">
+<h2>Further Reading (Optional)<a class="headerlink" href="#further-reading-optional" title="Permalink to this headline">¶</a></h2>
+<p>This user guide has lots of useful examples and documentation:
+https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./folder_04"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="../week_04.html" title="previous page">Chapter 4: Data Wrangling, Functions, and Seafloor Spreading</a>
+    <a class='right-next' id="next-link" href="W4_seafloor_spreading.html" title="next page">4.2 Seafloor Spreading</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By EPS 88 Team<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

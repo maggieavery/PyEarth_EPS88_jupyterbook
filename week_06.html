@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Appendix A: Function Catalog &#8212; Python Intro to Geoscience</title>
+    <title>Chapter 6: Probability Distributions and Random Earth Processes &#8212; Python Intro to Geoscience</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="_static/sphinx-book-theme.css" type="text/css" />
@@ -39,7 +39,8 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="6.2 Examples of Random Earth Processes" href="folder_06/W6_random_earth.html" />
+    <link rel="next" title="6.1 Probability Distributions" href="folder_06/W6_prob_dist.html" />
+    <link rel="prev" title="5.2 Earthquake Statistics" href="folder_05/W5_gutenberg_richter.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -105,13 +106,25 @@
    Chapter 5: Loops and Earthquake Statistics
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="week_06.html">
-   Chapter 6: Probability Distributions and Random Earth Processes
-  </a>
- </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
+   Chapter 6: Probability Distributions and Random Earth Processes
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="folder_06/W6_prob_dist.html">
+     6.1 Probability Distributions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="folder_06/W6_random_earth.html">
+     6.2 Examples of Random Earth Processes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="append_A.html">
    Appendix A: Function Catalog
   </a>
  </li>
@@ -157,7 +170,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/append_A.md"><button type="button"
+        <a class="dropdown-buttons" href="_sources/week_06.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -193,25 +206,12 @@
         
               <div>
                 
-  <div class="section" id="appendix-a-function-catalog">
-<h1>Appendix A: Function Catalog<a class="headerlink" href="#appendix-a-function-catalog" title="Permalink to this headline">¶</a></h1>
-<p><strong>This is a (semi)comprehensive list of the built-in python functions we will use in this class.</strong></p>
-<p><code class="docutils literal notranslate"><span class="pre">print()</span></code> prints to the screen the value of the variable in the parentheses or the <code class="docutils literal notranslate"><span class="pre">'text'</span></code> if in quote marks.</p>
-<p><code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code> reads from a csv (comma separated values) formated file to a Pandas DataFrame.</p>
-<p><code class="docutils literal notranslate"><span class="pre">dataframe.head()</span></code> prints the first 5 rows of the data table named <code class="docutils literal notranslate"><span class="pre">dataframe</span></code>.</p>
-<p><code class="docutils literal notranslate"><span class="pre">dataframe.loc[0][column1]</span></code> refers to the element of the data table named <code class="docutils literal notranslate"><span class="pre">dataframe</span></code> in the first (zeroth) row of column <code class="docutils literal notranslate"><span class="pre">column1</span></code>.</p>
-<p>Most basic mapping: <br />
-<code class="docutils literal notranslate"><span class="pre">plt.figure(figsize=(10,5))</span></code> <br />
-<code class="docutils literal notranslate"><span class="pre">ax</span> <span class="pre">=</span> <span class="pre">plt.axes(projection=ccrs.Mollweide())</span></code> <br />
-<code class="docutils literal notranslate"><span class="pre">ax.coastlines()</span></code> <br />
-<code class="docutils literal notranslate"><span class="pre">plt.show()</span></code> <br />
-This defines a figure object, addes axes with a Mollweide map projection, adds coastlines, and prints the figure to the screen. Note: you will need to <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">cartopy.crs</span> <span class="pre">as</span> <span class="pre">ccrs</span></code> and <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">matplotlib.pyplot</span> <span class="pre">as</span> <span class="pre">plt</span></code> first for this to run.</p>
-<p><code class="docutils literal notranslate"><span class="pre">ax.tissot()</span></code> will add Tissot circles to a map. Do this to see the map projection created distortions.</p>
-<p><code class="docutils literal notranslate"><span class="pre">plt.scatter()</span></code> makes a matplotlib scatter plot.</p>
-<p><code class="docutils literal notranslate"><span class="pre">plt.savefig('filename')</span></code> saves the figure as <em>filename</em>.</p>
-<p><code class="docutils literal notranslate"><span class="pre">ax.gridlines()</span></code> added gridlines to a figure.</p>
-<p><code class="docutils literal notranslate"><span class="pre">np.loadtxt</span></code> is a <code class="docutils literal notranslate"><span class="pre">numpy</span></code> function to load data from a .txt (text) file format.</p>
-<p><code class="docutils literal notranslate"><span class="pre">variablename.shape</span></code> returns the array size of a variable named <em>variablename</em>.</p>
+  <div class="section" id="chapter-6-probability-distributions-and-random-earth-processes">
+<h1>Chapter 6: Probability Distributions and Random Earth Processes<a class="headerlink" href="#chapter-6-probability-distributions-and-random-earth-processes" title="Permalink to this headline">¶</a></h1>
+<p>This week we will be considering physical processes which can be modeled as random events controlled by some <em>probability distribution</em>.</p>
+<p>In this reading assignment you will build background knowledge about random sampling and Poisson processes. A <em>Poisson</em> probability distribution expresses the probability of a given number of events occurring in a fixed interval of time. The events occur independently and with a constant average rate. The occurrence of an event does not depend on the time since the last event.</p>
+<div class="toctree-wrapper compound">
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -242,7 +242,8 @@ This defines a figure object, addes axes with a Mollweide map projection, adds c
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="folder_06/W6_random_earth.html" title="previous page">6.2 Examples of Random Earth Processes</a>
+    <a class='left-prev' id="prev-link" href="folder_05/W5_gutenberg_richter.html" title="previous page">5.2 Earthquake Statistics</a>
+    <a class='right-next' id="next-link" href="folder_06/W6_prob_dist.html" title="next page">6.1 Probability Distributions</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

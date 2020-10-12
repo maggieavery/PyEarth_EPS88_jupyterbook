@@ -1,4 +1,4 @@
-Chapter One: Introduction to Jupyter Notebooks and Map Projections
+Chapter 1: Introduction to Jupyter Notebooks and Map Projections
 =======================
 
 ## Syllabus can be found on the bCourses page:
@@ -34,6 +34,3 @@ Each week's module workflow will consist of:
 * a Jupyter notebook homework\* assignment (\* yes, all the work is homework)
 
 We'll schedule a weekly "office-hour" zoom opportunity to for students to ask questions, but please, post your questions to the class discourse discussion pages. We will answer questions there for the benefit of everyone.
-
-
-

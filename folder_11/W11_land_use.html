@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>10.2 Drivers of glacial-interglacial cycles &#8212; Python Intro to Geoscience</title>
+    <title>11.3 Land use - Anthropogeomorphology &#8212; Python Intro to Geoscience</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
@@ -39,8 +39,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Chapter 11: Classification" href="../week_11.html" />
-    <link rel="prev" title="10.1 Spectral analysis" href="W10_time_series.html" />
+    <link rel="next" title="Appendix A: Function Catalog" href="../append_A.html" />
+    <link rel="prev" title="11.2 Folds - structural geology" href="W11_folds.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -130,27 +130,32 @@
    Concentration
   </a>
  </li>
- <li class="toctree-l1 current active">
+ <li class="toctree-l1">
   <a class="reference internal" href="../week_10.html">
    Chapter 10: Time Series Analysis and Glacial Cycles
   </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="../week_11.html">
+   Chapter 11: Classification
+  </a>
   <ul class="current">
    <li class="toctree-l2">
-    <a class="reference internal" href="W10_time_series.html">
-     10.1 Spectral analysis
+    <a class="reference internal" href="W11_classification.html">
+     11.1 Machine learning: Clustering and Classification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="W11_folds.html">
+     11.2 Folds - structural geology
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     10.2 Drivers of glacial-interglacial cycles
+     11.3 Land use - Anthropogeomorphology
     </a>
    </li>
   </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../week_11.html">
-   Chapter 11: Classification
-  </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../append_A.html">
@@ -199,7 +204,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/folder_10/W10_climate_forcing.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/folder_11/W11_land_use.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -228,23 +233,14 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#what-sets-the-timing-of-these-glacial-interglacial-cycles">
-   What sets the timing of these glacial-interglacial cycles?
+  <a class="reference internal nav-link" href="#additional-assigned-reading">
+   Additional Assigned Reading
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#earth-s-orbit-pacemaker-of-the-ice-ages">
-     Earth’s orbit - pacemaker of the Ice Ages
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#check-out-this-tutorial">
-       Check out this tutorial
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#anthropogeomorphology">
+   Anthropogeomorphology
+  </a>
  </li>
 </ul>
 
@@ -256,44 +252,21 @@
         
               <div>
                 
-  <div class="section" id="drivers-of-glacial-interglacial-cycles">
-<h1>10.2 Drivers of glacial-interglacial cycles<a class="headerlink" href="#drivers-of-glacial-interglacial-cycles" title="Permalink to this headline">¶</a></h1>
-<p>We have talked about how 20,000 years ago during the Last Glacial Maximum, much of North America has covered by a thick ice sheet:</p>
-<p><img alt="" src="../_images/LGM_Modern_ice.png" /></p>
-<p>And we have looked at ice core data that shows that concentrations of CO<span class="math notranslate nohighlight">\(_2\)</span> in Earth’s atmosphere has varied through time:</p>
-<p><img alt="" src="../_images/ice_core_co2.png" /></p>
-<div class="section" id="what-sets-the-timing-of-these-glacial-interglacial-cycles">
-<h2>What sets the timing of these glacial-interglacial cycles?<a class="headerlink" href="#what-sets-the-timing-of-these-glacial-interglacial-cycles" title="Permalink to this headline">¶</a></h2>
-<p>Recall from your reading of section 19.1 of Physical Geology – 2nd Edition, By Steven Earle <a class="reference external" href="https://opentextbc.ca/physicalgeology2ed/chapter/19-1-what-makes-the-climate-change/">(Chapter 19.1 What Makes the Climate Change)</a>, besides the anthropogenic sources of CO<span class="math notranslate nohighlight">\(_2\)</span> there are also variations in Earth’s orbit around the sun and rotational tilt that cause Earth’s climate to change.</p>
-<div class="section" id="earth-s-orbit-pacemaker-of-the-ice-ages">
-<h3>Earth’s orbit - pacemaker of the Ice Ages<a class="headerlink" href="#earth-s-orbit-pacemaker-of-the-ice-ages" title="Permalink to this headline">¶</a></h3>
-<p><strong>Watch this video from PBS NOVA:</strong></p>
-<p><a class="reference external" href="http://www.youtube.com/watch?v=qKY7AN3tB_s"><img alt="" src="http://img.youtube.com/vi/qKY7AN3tB_s/0.jpg" /></a></p>
-<div class="section" id="check-out-this-tutorial">
-<h4>Check out <a class="reference external" href="http://www.sciencecourseware.org/eec/GlobalWarming/Tutorials/Milankovitch/">this tutorial</a><a class="headerlink" href="#check-out-this-tutorial" title="Permalink to this headline">¶</a></h4>
-<p><em>Material in this section of the notebook is modified from materials of Lisa Tauxe’s Python for Earth Science Students course: https://github.com/ltauxe/Python-for-Earth-Science-Students</em></p>
-<p>In 1920, Milutin Milankovitz  explained the coming and going of ice ages as a response to changes in the Earth’s <em>insolation</em> (the amount of energy recieved from the sun). He argued that insolation is controlled by changes in the Earth’s orbit around the sun.  This idea has now been widely embraced by the paleoclimate community, largely because of the very strong coherence between cycles in Earth’s orbit and evidence for changes in ice volume using geochemical proxies like oxygen isotopes —— data we will look at today.</p>
-<p>The orbital cycles are influenced by gravity of the Moon, Sun, Jupiter, and Saturn and can be calculated knowing their orbital parameters.  Milankovitch famously took the first stab at it from his prison cell during WWI. Nowadays it is calculated with supercomputers.  The key parameters are <em>eccentricity</em> (or ovalness of the orbit around the sun), the <em>obliquity</em> (tilt) of the spin axis and the <em>precession</em> of the spin axis.</p>
-<p><img alt="" src="../_images/Milankovitch_Cycles.jpg" /></p>
-<p>Figure from <a class="reference external" href="http://www.jamstec.go.jp/e/about/press_release/20141027/">JAMSTEC</a>.</p>
-<p>The Earth’s orbital parameters of ellipticity, obliquity and precession vary in predictable ways, i.e. with frequencies we can estimate with spectral analysis.</p>
-<p><strong>Watch these video lectures from Daniel Schrag at the Harvard University Center for the Environment:</strong></p>
-<p><a class="reference external" href="http://www.youtube.com/watch?v=7qJkptoEqOE"><img alt="" src="http://img.youtube.com/vi/7qJkptoEqOE/0.jpg" /></a></p>
-<p><a class="reference external" href="http://www.youtube.com/watch?v=FI0PfJSm7Yk"><img alt="" src="http://img.youtube.com/vi/FI0PfJSm7Yk/0.jpg" /></a></p>
-<p><a class="reference external" href="http://www.youtube.com/watch?v=b_he76Y0tmM"><img alt="" src="http://img.youtube.com/vi/b_he76Y0tmM/0.jpg" /></a></p>
-<p><a class="reference external" href="http://www.youtube.com/watch?v=z3dXxvHf0VY"><img alt="" src="http://img.youtube.com/vi/z3dXxvHf0VY/0.jpg" /></a></p>
-<p><a class="reference external" href="http://www.youtube.com/watch?v=6sV9GaKkExM"><img alt="" src="http://img.youtube.com/vi/6sV9GaKkExM/0.jpg" /></a></p>
-<p>The ice core CO<span class="math notranslate nohighlight">\(_2\)</span> record is a very impressive one, but unfortunately, it only goes back ~800,000 years. While these seems like a long time, it is only 0.02% of the history of the Earth.</p>
-<p>One way that we can go further back with a paleoclimate record is using marine fossils such as formainifera. Foraminifera are made of calcium carbonate: CaCO<span class="math notranslate nohighlight">\(_3\)</span></p>
-<p>The oxygen isotopes (<span class="math notranslate nohighlight">\(^{16}\)</span>O vs <span class="math notranslate nohighlight">\(^{18}\)</span>O) in the CaCO<span class="math notranslate nohighlight">\(_3\)</span> forms a record of both of temperature and ice volume. <span class="math notranslate nohighlight">\(\delta^{18}\)</span>O is a way to express the ratio between <span class="math notranslate nohighlight">\(^{16}\)</span>O and <span class="math notranslate nohighlight">\(^{18}\)</span>O.</p>
-<div class="math notranslate nohighlight">
-\[\delta ^{18}O={\Biggl (}{\frac  {{\bigl (}{\frac  {^{{18}}O}{^{{16}}O}}{\bigr )}_{{sample}}}{{\bigl (}{\frac  {^{{18}}O}{^{{16}}O}}{\bigr )}_{{standard}}}}-1{\Biggr )}\times 1000\ ^{{o}}\!/\!_{{oo}}\]</div>
-<p>When water is warm <span class="math notranslate nohighlight">\(\delta ^{18}\)</span>O is low and when water is cold <span class="math notranslate nohighlight">\(\delta ^{18}\)</span>O is high. There is a similar relationship with ice volume: when there is less ice the <span class="math notranslate nohighlight">\(\delta ^{18}\)</span>O of water is lower and there is more ice is cold <span class="math notranslate nohighlight">\(\delta ^{18}\)</span>O of water is higher which ends up contributing to the value of the fossil foraminifera.</p>
-<p><strong>So higher <span class="math notranslate nohighlight">\(\delta^{18}\)</span>O values are associated with a colder planet and lower <span class="math notranslate nohighlight">\(\delta^{18}\)</span>O values with a warmer planet.</strong></p>
-<p><img alt="" src="../_images/marine_del18O.png" /></p>
-<p>What frequencies do you initially observe in this record? 100ka? 40ka?</p>
+  <div class="section" id="land-use-anthropogeomorphology">
+<h1>11.3 Land use - Anthropogeomorphology<a class="headerlink" href="#land-use-anthropogeomorphology" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="additional-assigned-reading">
+<h2>Additional Assigned Reading<a class="headerlink" href="#additional-assigned-reading" title="Permalink to this headline">¶</a></h2>
+<p>Hooke, R. L. (2000). On the history of humans as geomorphic agents. Geology, 28(9), 843-846.</p>
+<p>Goudie, A. (2018). The human impact in geomorphology–50 years of change. Geomorphology, 106601.</p>
+<p>If you have any trouble (or paywalls) accessing these articles let me know. Or VPN or request access through the library.</p>
 </div>
-</div>
+<div class="section" id="anthropogeomorphology">
+<h2>Anthropogeomorphology<a class="headerlink" href="#anthropogeomorphology" title="Permalink to this headline">¶</a></h2>
+<p>The past few thousand years have seen a <strong>dramatic</strong> increase in the impact that humans have on the evolution and modification of landscapes. Studying how humans are using land and the impact that has on earth systems will help us mitigate these impacts, to build and farm more sustainably.</p>
+<p><img alt="" src="../_images/Hooke_fig1.png" /></p>
+<blockquote>
+<div><p>Figure from Hooke, R. L. (2000). On the history of humans as geomorphic agents. Geology, 28(9), 843-846.</p>
+</div></blockquote>
 </div>
 </div>
 
@@ -310,7 +283,7 @@
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./folder_10"
+            path: "./folder_11"
         },
         predefinedOutput: true
     }
@@ -325,8 +298,8 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="W10_time_series.html" title="previous page">10.1 Spectral analysis</a>
-    <a class='right-next' id="next-link" href="../week_11.html" title="next page">Chapter 11: Classification</a>
+    <a class='left-prev' id="prev-link" href="W11_folds.html" title="previous page">11.2 Folds - structural geology</a>
+    <a class='right-next' id="next-link" href="../append_A.html" title="next page">Appendix A: Function Catalog</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

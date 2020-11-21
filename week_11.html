@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Chapter 4: Data Wrangling, Functions, and Seafloor Spreading &#8212; Python Intro to Geoscience</title>
+    <title>Chapter 11: Classification &#8212; Python Intro to Geoscience</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="_static/sphinx-book-theme.css" type="text/css" />
@@ -39,8 +39,8 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="4.1 Data Wrangling and Advanced Indexing" href="folder_04/W4_dataframes.html" />
-    <link rel="prev" title="3.2 Earthquakes and Seismology" href="folder_03/W3_earthquakes.html" />
+    <link rel="next" title="11.1 Machine learning: Clustering and Classification" href="folder_11/W11_classification.html" />
+    <link rel="prev" title="10.2 Drivers of glacial-interglacial cycles" href="folder_10/W10_climate_forcing.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -96,22 +96,10 @@
    Chapter 3: Data Visualization and Earthquakes
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="week_04.html">
    Chapter 4: Data Wrangling, Functions, and Seafloor Spreading
   </a>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="folder_04/W4_dataframes.html">
-     4.1 Data Wrangling and Advanced Indexing
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="folder_04/W4_seafloor_spreading.html">
-     4.2 Seafloor Spreading
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="week_05.html">
@@ -147,10 +135,27 @@
    Chapter 10: Time Series Analysis and Glacial Cycles
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="week_11.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Chapter 11: Classification
   </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="folder_11/W11_classification.html">
+     11.1 Machine learning: Clustering and Classification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="folder_11/W11_folds.html">
+     11.2 Folds - structural geology
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="folder_11/W11_land_use.html">
+     11.3 Land use - Anthropogeomorphology
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="append_A.html">
@@ -199,7 +204,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/week_04.md"><button type="button"
+        <a class="dropdown-buttons" href="_sources/week_11.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -235,13 +240,14 @@
         
               <div>
                 
-  <div class="section" id="chapter-4-data-wrangling-functions-and-seafloor-spreading">
-<h1>Chapter 4: Data Wrangling, Functions, and Seafloor Spreading<a class="headerlink" href="#chapter-4-data-wrangling-functions-and-seafloor-spreading" title="Permalink to this headline">¶</a></h1>
-<p>This week we will build data wrangling skills and focus on a key piece of evidence for plate tectonics: seafloor spreading.</p>
+  <div class="section" id="chapter-11-classification">
+<h1>Chapter 11: Classification<a class="headerlink" href="#chapter-11-classification" title="Permalink to this headline">¶</a></h1>
+<p>We’ll use the machine learning technique, classification, to make predictions in a <em>test</em> dataset after teaching the algorithm the patterns in our <em>training</em> dataset. There are <strong>many</strong> applications of classification in Earth Science. We’ll explore a few geologic and land-use examples.</p>
 <ul class="simple">
-<li><p>Data wrangling and more advanced indexing methods</p></li>
-<li><p>How to declare a function</p></li>
-<li><p>The age of the seafloor and evidence of plate tectonics</p></li>
+<li><p>Classification</p></li>
+<li><p>Structural geology - folds</p></li>
+<li><p>Land use - anthropogeomorphology</p></li>
+<li><p>Basaltic sources</p></li>
 </ul>
 <div class="toctree-wrapper compound">
 </div>
@@ -275,8 +281,8 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="folder_03/W3_earthquakes.html" title="previous page">3.2 Earthquakes and Seismology</a>
-    <a class='right-next' id="next-link" href="folder_04/W4_dataframes.html" title="next page">4.1 Data Wrangling and Advanced Indexing</a>
+    <a class='left-prev' id="prev-link" href="folder_10/W10_climate_forcing.html" title="previous page">10.2 Drivers of glacial-interglacial cycles</a>
+    <a class='right-next' id="next-link" href="folder_11/W11_classification.html" title="next page">11.1 Machine learning: Clustering and Classification</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
